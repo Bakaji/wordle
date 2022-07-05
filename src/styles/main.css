@@ -1,0 +1,188 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,regular,500,600,700,800,900);
+* {
+  font-family: "Roboto Slab", serif;
+}
+:root {
+  --mainBlue: #0070f3;
+  --mainRed: #d32f2f;
+  --mainYellow: #ffc107;
+  --mainGreen: #44cb38;
+  --mainFontColor: #4e515d;
+  --lightGray: #d2d6d8;
+  --lightBlue: #9ab7ce;
+  --font-size: 32px;
+}
+* {
+  color: var(--mainFontColor);
+}
+.gridish {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.green-text {
+  color: var(--mainGreen);
+}
+.yellow-text {
+  color: var(--mainYellow);
+}
+.red-text {
+  color: var(--mainRed);
+}
+.gridish > * {
+  flex: 1 1 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.green-bg {
+  background-color: var(--mainGreen);
+}
+.yellow-bg {
+  background-color: var(--mainYellow);
+}
+.red-bg {
+  background-color: var(--mainRed);
+}
+.wordle-button {
+  padding: 2ch;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.wordle-button > * {
+  color: white;
+}
+.wordle-button h2 {
+  font-size: 1.5ch;
+}
+.wordle-button p {
+  font-size: 2ch;
+}
+
+.wordle-button:hover {
+  background-color: var(--mainYellow);
+}
+
+a {
+  text-decoration: none;
+  color: var(--mainFontColor);
+  transition: all 0.2s ease-in-out;
+}
+a:hover {
+  color: #44cb38;
+  transform: scale(1.1);
+}
+.whole-screen {
+  min-height: 100vh;
+  width: 100vw;
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+}
+.whole-screen > nav {
+  flex: 0 0 60px;
+  box-shadow: 0px 0px 10px var(--mainFontColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whole-screen > nav ~ * {
+  flex: 1;
+  padding-top: 1ch;
+  display: flex;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: 400;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: var(--mainFontColor);
+}
+
+.game-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.attempts-container {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.attempt-row {
+  flex: 0;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.attempt-row:first-child {
+  margin-top: 15px;
+}
+
+#input-field {
+  position: absolute;
+  display: block;
+  left: -9999px;
+}
+.attempt-label {
+  display: flex;
+  width: auto;
+  height: 60px;
+  column-gap: 5px;
+  background-color: white;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+.attempt-label > * {
+  flex: 0 1 60px;
+  min-width: 60px;
+  text-align: center;
+  height: 100%;
+  border: 3px solid var(--lightGray);
+  background-color: var(--lightGray);
+  border-radius: 5px;
+  color: var(--mainFontColor);
+  display: flex;
+  font-size: var(--font-size);
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.focused-cell {
+  border-color: var(--lightBlue);
+}
+.attempt-cell {
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: var(--font-size);
+}
+.wrong-cell {
+  background-color: var(--mainRed);
+  border-color: var(--mainRed);
+  color: var(--lightGray);
+}
+.missed-cell {
+  background-color: var(--mainYellow);
+  border-color: var(--mainYellow);
+  color: var(--lightGray);
+}
+.correct-cell {
+  background-color: var(--mainBlue);
+  border-color: var(--mainBlue);
+  color: var(--lightGray);
+}
